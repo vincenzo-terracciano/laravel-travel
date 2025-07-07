@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TravelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('/', [DashboardController::class, 'home'])
             ->name('home');
+
+        Route::resource("travels", TravelController::class);
     });
 
 require __DIR__ . '/auth.php';
