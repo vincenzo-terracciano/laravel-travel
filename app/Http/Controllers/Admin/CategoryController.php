@@ -15,7 +15,8 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'))
+            ->with('success', 'Categoria creata con successo');
     }
 
     /**
@@ -23,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -31,7 +32,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newCategory = new Category();
+
+        $newCategory->name = $data["name"];
+        $newCategory->icon = $data["icon"];
+
+        $newCategory->save();
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**

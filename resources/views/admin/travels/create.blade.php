@@ -120,7 +120,7 @@
                 <label for="is_published" class="form-check-label">Pubblicato</label>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Salva viaggio</button>
+            <button type="submit" class="btn btn-primary mt-3">Crea Viaggio</button>
             
         </form>
     </div>
