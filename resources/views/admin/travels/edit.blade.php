@@ -111,14 +111,24 @@
 
             <div class="mb-4">
                 <label for="cover_image" class="form-label">Immagine di copertina</label>
-                <input
-                    type="file"
-                    class="form-control"
-                    name="cover_image"
-                    id="cover_image"
-                    value="{{ $travel->cover_image }}"
-                />
+                <div class="d-flex align-items-center gap-3">
+                    <input
+                        type="file"
+                        class="form-control"
+                        name="cover_image"
+                        id="cover_image"
+                    />
+            
+                    @if ($travel->cover_image)
+                        <img
+                            src="{{ asset('storage/' . $travel->cover_image) }}"
+                            alt="{{ $travel->title }}"
+                            style="width: 100px; height: auto; border-radius: 4px;"
+                        />
+                    @endif
+                </div>
             </div>
+            
 
             <div class="mb-4 form-check">
                 <input

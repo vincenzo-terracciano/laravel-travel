@@ -3,6 +3,19 @@
 @section('content')
 <div class="container py-4">
 
+    @if (session('success'))
+    <div id="alert-warning" class="alert alert-warning">
+        {{ session('success') }}
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('alert-warning');
+            if (alert) alert.style.display = 'none';
+        }, 4000);
+    </script>
+@endif
+
     <div class="card travel-card">
         @if($travel->cover_image)
         <img 

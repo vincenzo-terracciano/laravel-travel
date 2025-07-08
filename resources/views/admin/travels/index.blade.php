@@ -7,6 +7,29 @@
         <a href="{{ route('admin.travels.create') }}" class="btn btn-success">+ Nuovo Viaggio</a>
     </div>
 
+    @if (session('success'))
+    <div id="alert-success" class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if (session('deleted'))
+    <div id="alert-deleted" class="alert alert-danger">
+        {{ session('deleted') }}
+    </div>
+@endif
+
+    {{-- script per visualizzare il messaggio di successo ed eliminazione per 4 secondi --}}
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('alert-success');
+            if(alert) alert.style.display = 'none';
+
+            const alertDeleted = document.getElementById('alert-deleted');
+            if (alertDeleted) alertDeleted.style.display = 'none';
+        }, 4000);
+    </script>
+
     @if($travels->isEmpty())
         <div class="alert alert-info">
             Nessun viaggio presente al momento.

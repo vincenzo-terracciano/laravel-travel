@@ -128,7 +128,7 @@ class TravelController extends Controller
             $travel->tags()->detach();
         }
 
-        return redirect()->route('admin.travels.show', $travel->id);
+        return redirect()->route('admin.travels.show', $travel->id)->with('success', 'Viaggio modificato con successo!');
     }
 
     /**
@@ -138,6 +138,6 @@ class TravelController extends Controller
     {
         $travel->delete();
 
-        return redirect()->route('admin.travels.index');
+        return redirect()->route('admin.travels.index')->with('deleted', 'Viaggio eliminato con successo!');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TravelController;
 use App\Http\Controllers\ProfileController;
@@ -28,6 +29,7 @@ Route::middleware(['auth', 'verified'])
             ->name('home');
 
         Route::resource("travels", TravelController::class);
+        Route::resource("categories", CategoryController::class);
     });
 
 require __DIR__ . '/auth.php';
