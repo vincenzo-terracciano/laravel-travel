@@ -6,7 +6,7 @@
     <div class="card travel-card">
         @if($travel->cover_image)
         <img 
-            src="{{ $travel->cover_image }}"
+            src="{{ asset('storage/' . $travel->cover_image) }}"
             class="card-img-top" 
             alt="Copertina di {{ $travel->title }}"
             style="max-height: 400px; object-fit: cover;">

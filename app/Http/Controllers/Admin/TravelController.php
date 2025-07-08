@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Travel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TravelController extends Controller
 {
@@ -50,8 +51,17 @@ class TravelController extends Controller
         $newTravel->departure_date = $data["departure_date"];
         $newTravel->return_date = $data["return_date"];
         $newTravel->category_id = $data["category_id"];
-        $newTravel->cover_image = $data["cover_image"];
         $newTravel->is_published = isset($data["is_published"]);
+
+        // controllo per l'upload dell'immagine
+        if (array_key_exists("cover_image", $data)) {
+
+            // carico l'immagine del mio storage
+            $img_url = Storage::disk('public')->putFile('travels', $data['cover_image']);
+
+            // memorizzo il file nel database
+            $newTravel->cover_image = $img_url;
+        }
 
         $newTravel->save();
 
@@ -124,8 +134,10 @@ class TravelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Travel $travel)
     {
-        //
+        $travel->delete();
+
+        return redirect()->route('admin.travels.index');
     }
 }

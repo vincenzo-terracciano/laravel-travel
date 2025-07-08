@@ -44,9 +44,9 @@
                         </td>
                         <td>
                             @if ($travel->cover_image)
-                                <img src="{{ $travel->cover_image }}" alt="{{ $travel->title }}" width="100">
+                                <img src="{{ asset('storage/' . $travel->cover_image) }}" alt="{{ $travel->title }}" width="100">
                             @else
-                                <em>Nessuna immagine</em>
+                                <p>Nessuna immagine</p>
                             @endif
                         </td>
                         <td style="min-width: 180px; height: 100%;">
