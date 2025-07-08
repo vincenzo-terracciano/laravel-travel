@@ -70,10 +70,10 @@
 
             <div class="buttons d-flex align-items-center gap-3">
                 <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-primary">
-                    ← Torna alla lista viaggi
+                    ← Torna alla lista Viaggi
                 </a>
                 <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
-                    ← Modifica viaggio
+                    ← Modifica Viaggio
                 </a>
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}">
                     Elimina

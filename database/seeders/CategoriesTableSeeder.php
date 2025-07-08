@@ -18,7 +18,7 @@ class CategoriesTableSeeder extends Seeder
             "Relax" => "fa-solid fa-spa",
             "Città d'arte" => "fa-solid fa-landmark",
             "Mare" => "fa-solid fa-umbrella-beach",
-            "Montagna" => "fa-solid fa-mountains",
+            "Montagna" => "fa-solid fa-mountain",
             "Viaggi di Coppia" => "fa-solid fa-heart",
             "Viaggi di Gruppo" => "fa-solid fa-people-group"
         ];

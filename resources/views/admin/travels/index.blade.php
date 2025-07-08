@@ -109,6 +109,16 @@
                 @endforeach
             </tbody>
         </table>
+
+        @if ($travels->hasPages())
+        <div class="d-flex justify-content-center align-items-center flex-column mt-5">
+            {{ $travels->links() }}
+
+            <p class="text-muted mt-2">
+                Mostrati {{ $travels->count() }} di {{ $travels->total() }} viaggi
+            </p>
+        </div>
+        @endif
     @endif
 </div>
 @endsection

@@ -38,9 +38,11 @@
                 @foreach($categories as $category)
                     <tr>
                         <td>{{ $category->name }}</td>
-                        <td>{{ $category->icon }}</td>
-                        <td style="d-flex justify-content-center min-width: 180px; height: 100%;">
-                            <div class="d-flex align-items-center gap-2 h-100">
+                        <td>
+                            <i class="{{ $category->icon }}"></i>
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center gap-2">
                                 <a href="{{ route('admin.categories.show', $category->id) }}" class="btn btn-sm btn-info">Visualizza</a>
                                 <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-sm btn-warning">Modifica</a>
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $category->id }}">
