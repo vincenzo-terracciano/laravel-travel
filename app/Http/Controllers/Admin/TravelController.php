@@ -77,17 +77,48 @@ class TravelController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Travel $travel)
     {
-        //
+        // prendo tutte le categorie
+        $categories = Category::all();
+
+        // prendo tutti i tags
+        $tags = Tag::all();
+
+        return view('admin.travels.edit', compact('travel', 'categories', 'tags'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Travel $travel)
     {
-        //
+        $data = $request->all();
+
+        $travel->title = $data["title"];
+        $travel->description = $data["description"];
+        $travel->destination_country = $data["destination_country"];
+        $travel->destination_city = $data["destination_city"];
+        $travel->departure_date = $data["departure_date"];
+        $travel->return_date = $data["return_date"];
+        $travel->category_id = $data["category_id"];
+        $travel->cover_image = $data["cover_image"];
+        $travel->is_published = isset($data["is_published"]);
+
+        $travel->update();
+
+        // verifico se sto ricevendo i tags
+        if ($request->has('tags')) {
+
+            // sincronizzo i tag della tabella pivot
+            $travel->tags()->sync($data["tags"]);
+        } else {
+
+            // se non ricevo i tags allora elimino dalla tabella pivot tutti i tag collegati al viaggio in questione
+            $travel->tags()->detach();
+        }
+
+        return redirect()->route('admin.travels.show', $travel->id);
     }
 
     /**

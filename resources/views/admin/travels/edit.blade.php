@@ -1,0 +1,139 @@
+@extends('layouts.admin')
+
+@section('content')
+    
+    <div class="container py-3">
+        <h1>Modifica viaggio</h1>
+
+        <form action="{{ route('admin.travels.update', $travel->id) }}" method="post" class="my-5" enctype="multipart/form-data">
+            @csrf
+
+            @method('PUT')
+
+            <div class="mb-4">
+                <label for="title" class="form-label">Titolo</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="title"
+                    id="title"
+                    value="{{ $travel->title }}"
+                />
+            </div>
+
+            <div class="mb-4">
+                <label for="description" class="form-label">Descrizione</label>
+                <textarea name="description" id="description" class="form-control">
+                    {{ $travel->description }}
+                </textarea>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <label for="destination_country" class="form-label">Paese di destinazione</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="destination_country"
+                    id="destination_country"
+                    value="{{ $travel->destination_country }}"
+                    />
+                </div>
+
+                <div class="col">
+                    <label for="destination_city" class="form-label">Città di destinazione</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="destination_city"
+                    id="destination_city"
+                    value="{{ $travel->destination_city }}"
+                    />
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <label for="departure_date" class="form-label">Data di partenza</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    name="departure_date"
+                    id="departure_date"
+                    value="{{ $travel->departure_date }}"
+                    />
+                </div>
+
+                <div class="col">
+                    <label for="return_date" class="form-label">Data di ritorno</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    name="return_date"
+                    id="return_date"
+                    value="{{ $travel->return_date }}"
+                    />
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="category_id" class="form-label">Categoria</label>
+                <select name="category_id" id="category_id" class="form-select">
+                    <option value="">Seleziona una categoria</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ $travel->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label d-block">Tag</label>
+                <div class="border rounded p-2">
+
+                    @foreach ($tags as $tag)
+                        
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="tags[]"
+                            value="{{ $tag->id }}"
+                            id="tag - {{ $tag->id }}"
+                            {{ $travel->tags->contains($tag->id) ? 'checked' : '' }}
+                        />
+                        <label class="form-check-label" for="tag - {{ $tag->id }}"> {{ $tag->name }} </label>
+                    </div>
+        
+                    @endforeach
+    
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="cover_image" class="form-label">Immagine di copertina</label>
+                <input
+                    type="file"
+                    class="form-control"
+                    name="cover_image"
+                    id="cover_image"
+                    value="{{ $travel->cover_image }}"
+                />
+            </div>
+
+            <div class="mb-4 form-check">
+                <input
+                    type="checkbox"
+                    class="form-check-input"
+                    name="is_published"
+                    id="is_published"
+                    {{ $travel->is_published ? 'checked' : '' }}
+                    />
+                <label for="is_published" class="form-check-label">Pubblicato</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Salva viaggio</button>
+            
+        </form>
+    </div>
+
+@endsection

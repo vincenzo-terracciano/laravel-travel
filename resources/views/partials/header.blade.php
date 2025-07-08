@@ -10,7 +10,9 @@
 
         <div class="collapse navbar-collapse" id="navbarAdmin">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
+                <li class="nav-item">
+                    <a href="{{ route('admin.travels.index') }}" class="nav-link">Viaggi</a>
+                </li>
             </ul>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
