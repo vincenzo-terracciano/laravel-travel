@@ -16,7 +16,7 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         return view('admin.categories.index', compact('categories'))
-            ->with('success', 'Categoria creata con successo');
+            ->with('success', 'Categoria creata con successo!');
     }
 
     /**
@@ -55,17 +55,25 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->all();
+
+        $category->name = $data["name"];
+        $category->icon = $data["icon"];
+
+        $category->update();
+
+        return redirect()->route('admin.categories.show', $category->id)
+            ->with('success', 'Categoria modificata con successo!');
     }
 
     /**

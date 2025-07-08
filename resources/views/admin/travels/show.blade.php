@@ -14,7 +14,7 @@
             if (alert) alert.style.display = 'none';
         }, 4000);
     </script>
-@endif
+    @endif
 
     <div class="card travel-card">
         @if($travel->cover_image)

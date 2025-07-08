@@ -4,10 +4,12 @@
 <div class="container py-4">
     <div class="card category-card">
         <div class="card-body">
-            <h1 class="card-title mb-4">Crea una nuova categoria</h1>
+            <h1 class="card-title mb-4">Modifica categoria: {{ $category->name }}</h1>
 
-            <form action="{{ route('admin.categories.store') }}" method="POST">
+            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
                 @csrf
+
+                @method('PUT')
 
                 <div class="mb-4">
                     <label for="name" class="form-label">Nome categoria</label>
@@ -16,7 +18,7 @@
                         name="name" 
                         id="name" 
                         class="form-control" 
-                        required>
+                        value="{{ $category->name }}" required>
                 </div>
 
                 <div class="mb-4">
@@ -25,19 +27,17 @@
                         type="text" 
                         name="icon" 
                         id="icon" 
-                        class="form-control"
-                        placeholder="Es. fa-solid fa-heart"
-                        required>
-
+                        class="form-control" 
+                        value="{{ $category->icon }}" required>
                     <div class="form-text text-white">
-                        Inserisci le classi FontAwesome, es: <code>fa-solid fa-heart</code>  
+                        Inserisci le classi FontAwesome, es: <code>fa-solid fa-mountain</code>  
                         <br>Consulta: <a href="https://fontawesome.com/icons" target="_blank" class="text-decoration-none">FontAwesome Icons</a>
                     </div>
                 </div>
 
                 <div class="mt-4 d-flex gap-2">
                     <a href="{{ route('admin.categories.index') }}" class="btn btn-outline-secondary">← Annulla</a>
-                    <button type="submit" class="btn btn-outline-primary">Crea Categoria</button>
+                    <button type="submit" class="btn btn-outline-warning">Modifica Categoria</button>
                 </div>
             </form>
         </div>

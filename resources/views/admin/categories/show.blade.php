@@ -2,6 +2,20 @@
 
 @section('content')
 <div class="container py-4">
+
+    @if (session('success'))
+    <div id="alert-warning" class="alert alert-warning">
+        {{ session('success') }}
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('alert-warning');
+            if (alert) alert.style.display = 'none';
+        }, 4000);
+    </script>
+    @endif
+
     <div class="card category-card">
         <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-4">
@@ -23,9 +37,9 @@
                     @endforeach
                 </ul>
             @else
-                <div class="alert alert-info mt-3">
+                <p class="mt-3">
                     Nessun viaggio associato
-                </div>
+                </p>
             @endif
 
             <div class="mt-4 d-flex gap-2">
