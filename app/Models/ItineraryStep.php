@@ -10,4 +10,9 @@ class ItineraryStep extends Model
     {
         return $this->belongsTo(Travel::class);
     }
+
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
+    }
 }

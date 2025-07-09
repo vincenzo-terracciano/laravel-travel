@@ -10,4 +10,9 @@ class Place extends Model
     {
         return $this->belongsTo(Travel::class);
     }
+
+    public function itinerarySteps()
+    {
+        return $this->hasMany(ItineraryStep::class);
+    }
 }

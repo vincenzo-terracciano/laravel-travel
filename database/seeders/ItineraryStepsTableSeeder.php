@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\ItineraryStep;
+use App\Models\Place;
 use App\Models\Travel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,9 @@ class ItineraryStepsTableSeeder extends Seeder
 
         foreach ($travels as $travel) {
 
+            // recupero i luoghi del viaggio corrente
+            $places = Place::where('travel_id', $travel->id)->get();
+
             // creo da 3 a 7 tappe randomiche per ogni viaggio
             $stepsCount = rand(3, 7);
 
@@ -32,6 +36,27 @@ class ItineraryStepsTableSeeder extends Seeder
                 $newStep->title = $faker->sentence(3);
                 $newStep->description = $faker->paragraph(3);
                 $newStep->day_number = $i + 1;
+
+                $newStep->estimated_time = $faker->time('H:i');
+                $newStep->activity_type = $faker->randomElement([
+                    '⭐ Da non perdere',
+                    '🍴 Pausa cibo',
+                    '☕ Colazione',
+                    '🏛️ Visita culturale',
+                    '🌳 Relax',
+                    '🛍️ Shopping',
+                    '📸 Punto panoramico',
+                    '🎭 Evento o spettacolo',
+                    '🚶 Passeggiata',
+                    '🏖️ Spiaggia',
+                    '🧗 Attività',
+                    '🍷 Degustazione',
+                    '🕌 Visita religiosa',
+                ]);
+
+                if ($places->isNotEmpty()) {
+                    $newStep->place_id = $places->random()->id;
+                }
 
                 $newStep->save();
             }

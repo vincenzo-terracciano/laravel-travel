@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             TagsTableSeeder::class,
             TravelsTableSeeder::class,
+            PlacesTableSeeder::class,
             ItineraryStepsTableSeeder::class,
             PackingItemsTableSeeder::class,
-            PlacesTableSeeder::class,
             PhotosTableSeeder::class,
         ]);
     }

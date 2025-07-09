@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ItineraryStepsController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TravelController;
 use App\Http\Controllers\ProfileController;
@@ -32,6 +33,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource("travels", TravelController::class);
         Route::resource("categories", CategoryController::class);
         Route::resource("tags", TagController::class);
+        Route::resource("travels.itinerary_steps", ItineraryStepsController::class)->scoped();
     });
 
 require __DIR__ . '/auth.php';
