@@ -16,6 +16,9 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.categories.index') }}" class="nav-link">Categorie</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.tags.index') }}" class="nav-link">Tags</a>
+                </li>
             </ul>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

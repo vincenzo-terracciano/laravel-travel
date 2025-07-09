@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TravelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::resource("travels", TravelController::class);
         Route::resource("categories", CategoryController::class);
+        Route::resource("tags", TagController::class);
     });
 
 require __DIR__ . '/auth.php';

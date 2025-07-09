@@ -40,7 +40,7 @@
 
             <div class="mb-3 d-flex flex-wrap gap-2">
                 @foreach ($travel->tags as $tag)
-                    <span class="badge rounded-pill me-1" style="background-color: {{ $tag->color }}">{{ $tag->name }}</span>
+                    <a href="{{ route('admin.tags.show', $tag->id) }}" class="badge badge-hover rounded-pill text-decoration-none me-1" style="background-color: {{ $tag->color }}">{{ $tag->name }}</a>
                 @endforeach
             </div>
 
