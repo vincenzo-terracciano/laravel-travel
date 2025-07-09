@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tags.create');
     }
 
     /**
@@ -31,7 +32,17 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newTag = new Tag();
+
+        $newTag->name = $data["name"];
+        $newTag->color = $data["color"];
+
+        $newTag->save();
+
+        return redirect()->route('admin.tags.index')
+            ->with('success', 'Tag creato con successo!');
     }
 
     /**
@@ -45,24 +56,35 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Tag $tag)
     {
-        //
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $data = $request->all();
+
+        $tag->name = $data["name"];
+        $tag->color = $data["color"];
+
+        $tag->update();
+
+        return redirect()->route('admin.tags.show', $tag->id)
+            ->with('success', 'Tag modificato con successo!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->route('admin-tags.index')
+            ->with('deleted', 'Tag eliminato con successo!');
     }
 }
