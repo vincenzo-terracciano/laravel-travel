@@ -43,7 +43,7 @@ class PackingItemController extends Controller
         $newItem->save();
 
         return redirect()->route('admin.travels.packing_items.index', $travel->id)
-            ->with('success', 'Oggetto aggiunto alla valigia con successo');
+            ->with('success', 'Oggetto aggiunto alla valigia con successo!');
     }
 
     /**
@@ -65,16 +65,28 @@ class PackingItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Travel $travel, PackingItem $packing_item)
     {
-        //
+        $data = $request->all();
+
+        $packing_item->travel_id = $travel->id;
+        $packing_item->item_name = $data["item_name"];
+        $packing_item->is_mandatory = isset($data["is_mandatory"]);
+
+        $packing_item->update();
+
+        return redirect()->route('admin.travels.packing_items.index', $travel->id)
+            ->with('success', 'Oggetto modificato con successo!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Travel $travel, PackingItem $packing_item)
     {
-        //
+        $packing_item->delete();
+
+        return redirect()->route('admin.travels.packing_items.index', $travel->id)
+            ->with('deleted', 'Oggetto eliminato con successo!');
     }
 }

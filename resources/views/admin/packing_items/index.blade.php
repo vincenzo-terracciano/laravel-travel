@@ -39,7 +39,7 @@
         <table class="table table-bordered table-hover align-middle">
             <thead class="table-light">
                 <tr>
-                    <th>Nome oggetto</th>
+                    <th>Oggetto</th>
                     <th>Obbligatorio</th>
                     <th>Azioni</th>
                 </tr>
@@ -57,12 +57,33 @@
                         </td>
                         <td class="d-flex justify-content-center gap-2">
                             <a href="{{ route('admin.travels.packing_items.edit', [$travel->id, $item->id]) }}" class="btn btn-sm btn-warning">Modifica</a>
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}-{{ $item->id }}">
+                                Elimina
+                            </button>
 
-                            <form action="{{ route('admin.travels.packing_items.destroy', [$travel->id, $item->id]) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo oggetto?')">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-sm btn-danger">Elimina</button>
-                            </form>
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteModalLabel{{ $travel->id }}-{{ $item->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $travel->id }}-{{ $item->id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}-{{ $item->id }}">Elimina l'oggetto</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Vuoi eliminare l'oggetto <strong>{{ $item->item_name }}</strong>?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                            <form action="{{ route("admin.travels.packing_items.destroy", [$travel->id, $item->id]) }}" method="POST">
+                                                @csrf
+                
+                                                @method("DELETE")
+                                                <input type="submit" value="Elimina" class="btn btn-danger">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

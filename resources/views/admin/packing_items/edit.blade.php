@@ -4,10 +4,12 @@
     <div class="container py-4">
         <div class="card travel-card">
             <div class="card-body">
-                <h2 class="card-title mb-4">Aggiungi un oggetto alla valigia per il viaggio a {{ $travel->destination_city }}, {{ $travel->destination_country }}</h2>
+                <h2 class="card-title mb-4">Modifica l'oggetto {{ $packing_item->item_name }} nella valigia per il viaggio a {{ $travel->destination_city }}, {{ $travel->destination_country }}</h2>
 
-                <form action="{{ route('admin.travels.packing_items.store', $travel->id) }}" method="POST">
+                <form action="{{ route('admin.travels.packing_items.update', [$travel->id, $packing_item->id]) }}" method="POST">
                     @csrf
+
+                    @method('PUT')
             
                     <div class="mb-4">
                         <label for="item_name" class="form-label">Nome oggetto</label>
@@ -15,7 +17,8 @@
                             type="text" 
                             name="item_name" 
                             id="item_name" 
-                            class="form-control" required>
+                            class="form-control" 
+                            value="{{ $packing_item->item_name }}" required>
                     </div>
             
                     <div class="form-check mb-4">
@@ -23,7 +26,7 @@
                             class="form-check-input" 
                             type="checkbox" 
                             id="is_mandatory" 
-                            name="is_mandatory">
+                            name="is_mandatory" {{ $packing_item->is_mandatory ? 'checked' : '' }}>
                         <label class="form-check-label" for="is_mandatory">
                             Obbligatorio
                         </label>
@@ -31,7 +34,7 @@
 
                     <div class="mt-4 d-flex gap-2">
                         <a href="{{ route('admin.travels.packing_items.index', $travel->id) }}" class="btn btn-outline-secondary">← Annulla</a>
-                        <button type="submit" class="btn btn-outline-primary">Salva</button>
+                        <button type="submit" class="btn btn-outline-primary">Modifica</button>
                     </div>
                 </form>
             </div>
