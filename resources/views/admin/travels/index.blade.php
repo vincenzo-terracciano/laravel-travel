@@ -17,7 +17,7 @@
     <div id="alert-deleted" class="alert alert-danger">
         {{ session('deleted') }}
     </div>
-@endif
+    @endif
 
     {{-- script per visualizzare il messaggio di successo ed eliminazione per 4 secondi --}}
     <script>

@@ -15,8 +15,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.categories.index', compact('categories'))
-            ->with('success', 'Categoria creata con successo!');
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -41,7 +40,8 @@ class CategoryController extends Controller
 
         $newCategory->save();
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')
+            ->with('success', 'Categoria creata con successo!');
     }
 
     /**
@@ -79,8 +79,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('admin.categories.index')
+            ->with('deleted', 'Categoria eliminata con successo!');
     }
 }

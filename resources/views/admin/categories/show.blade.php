@@ -8,6 +8,7 @@
         {{ session('success') }}
     </div>
 
+    {{-- script per visualizzare il messaggio di successo per 4 secondi --}}
     <script>
         setTimeout(() => {
             const alert = document.getElementById('alert-warning');

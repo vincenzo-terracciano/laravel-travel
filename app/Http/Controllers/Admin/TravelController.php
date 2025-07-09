@@ -73,7 +73,7 @@ class TravelController extends Controller
         }
 
         return redirect()->route('admin.travels.index')
-            ->with('success', 'Viaggio creato con successo');
+            ->with('success', 'Viaggio creato con successo!');
     }
 
     /**
@@ -112,8 +112,20 @@ class TravelController extends Controller
         $travel->departure_date = $data["departure_date"];
         $travel->return_date = $data["return_date"];
         $travel->category_id = $data["category_id"];
-        $travel->cover_image = $data["cover_image"];
         $travel->is_published = isset($data["is_published"]);
+
+        // se è presente l'immagine modificata
+        if (array_key_exists("cover_image", $data)) {
+
+            // elimino l'immagine precedente
+            Storage::delete($travel->cover_image);
+
+            // carico la nuova immagine
+            $img_url = Storage::putFile("travels", $data["cover_image"]);
+
+            // aggiorno il database
+            $travel->cover_image = $img_url;
+        }
 
         $travel->update();
 
@@ -128,7 +140,8 @@ class TravelController extends Controller
             $travel->tags()->detach();
         }
 
-        return redirect()->route('admin.travels.show', $travel->id)->with('success', 'Viaggio modificato con successo!');
+        return redirect()->route('admin.travels.show', $travel->id)
+            ->with('success', 'Viaggio modificato con successo!');
     }
 
     /**
@@ -138,6 +151,7 @@ class TravelController extends Controller
     {
         $travel->delete();
 
-        return redirect()->route('admin.travels.index')->with('deleted', 'Viaggio eliminato con successo!');
+        return redirect()->route('admin.travels.index')
+            ->with('deleted', 'Viaggio eliminato con successo!');
     }
 }
