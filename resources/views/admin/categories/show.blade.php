@@ -16,7 +16,7 @@
     </script>
     @endif
 
-    <div class="card category-card">
+    <div class="card travel-card">
         <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-4">
                 <i class="{{ $category->icon }} fs-1 text-primary"></i>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-4">
-    <div class="card category-card">
+    <div class="card travel-card">
         <div class="card-body">
             <h1 class="card-title mb-4">Crea una nuova categoria</h1>
 
