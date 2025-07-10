@@ -29,13 +29,16 @@
         <div class="card-body">
             <h1 class="card-title mb-3">{{ $travel->title }}</h1>
 
-            <div class="mb-3">
+            <div class="category mb-3">
                 @if($travel->category)
-                    <i class="{{ $travel->category->icon }} me-2"></i> 
-                    {{ $travel->category->name }}
+                    <a href="{{ route('admin.categories.show', $travel->category->id) }}" class="text-decoration-none">
+                        <i class="{{ $travel->category->icon }} me-2"></i> 
+                        {{ $travel->category->name }}
+                    </a>
                 @else
                     <span>Categoria non definita</span>
                 @endif
+
             </div>
 
             <div class="mb-3 d-flex flex-wrap gap-2">
@@ -74,19 +77,19 @@
                     ← Torna alla lista Viaggi
                 </a>
                 <a href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}" class="btn btn-outline-info">
-                    ✈️ Vedi Itinerario
+                    Vedi Itinerario
                 </a>
                 <a href="{{ route('admin.travels.packing_items.index', $travel->id) }}" class="btn btn-outline-secondary">
-                    🧳 Lista Valigia
+                    Lista Valigia
                 </a>
                 <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-light">
-                    📍 Luoghi da Visitare
+                    Luoghi da Visitare
                 </a>
                 <a href="{{ route('admin.travels.photos.index', $travel->id) }}" class="btn btn-outline-danger">
-                    📸 Visualizza tutte le foto
+                    Visualizza tutte le foto
                 </a>
                 <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
-                    ← Modifica Viaggio
+                    Modifica Viaggio
                 </a>
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}">
                     Elimina

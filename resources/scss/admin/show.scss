@@ -61,6 +61,14 @@
     }
 }
 
+.category a {
+    color: #fff;
+
+    &:hover {
+        color: #0d6efd;
+    }
+}
+
 /* Tags */
 .travel-card .badge-title {
     font-size: 1.5rem;
