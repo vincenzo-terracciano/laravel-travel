@@ -92,7 +92,7 @@
                     Modifica Viaggio
                 </a>
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}">
-                    Elimina
+                    Elimina viaggio
                 </button>
 
                 <!-- Modal -->

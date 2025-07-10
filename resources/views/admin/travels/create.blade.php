@@ -57,6 +57,7 @@
                             class="form-control"
                             name="departure_date"
                             id="departure_date"
+                            required
                             />
                         </div>
         
@@ -67,6 +68,7 @@
                             class="form-control"
                             name="return_date"
                             id="return_date"
+                            required
                             />
                         </div>
                     </div>
@@ -125,8 +127,8 @@
                     </div>
         
                     <div class="mt-5 d-flex gap-2">
-                        <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-secondary">← Annulla</a>
                         <button type="submit" class="btn btn-outline-primary">Crea Viaggio</button>
+                        <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>
             </div>

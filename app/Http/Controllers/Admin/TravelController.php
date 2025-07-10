@@ -40,7 +40,21 @@ class TravelController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'destination_country' => 'required|string|max:255',
+            'destination_city' => 'required|string|max:255',
+            'departure_date' => 'nullable|date',
+            'return_date' => 'nullable|date|after_or_equal:departure_date',
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'nullable|array',
+            'tags.*' => 'exists:tags,id',
+            'cover_image' => 'nullable|image|max:2048',
+            'is_published' => 'nullable|boolean',
+        ]);
+
+        /* $data = $request->all(); */
 
         $newTravel = new Travel();
 
@@ -118,7 +132,9 @@ class TravelController extends Controller
         if (array_key_exists("cover_image", $data)) {
 
             // elimino l'immagine precedente
-            Storage::disk('public')->delete($travel->cover_image);
+            if ($travel->cover_image) {
+                Storage::disk('public')->delete($travel->cover_image);
+            }
 
             // carico la nuova immagine
             $img_url = Storage::disk('public')->putFile("travels", $data["cover_image"]);

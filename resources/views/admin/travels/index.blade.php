@@ -53,8 +53,12 @@
                     <tr>
                         <td>{{ $travel->title }}</td>
                         <td>{{ $travel->destination_city }}, {{ $travel->destination_country }}</td>
-                        <td>{{ $travel->departure_date }}</td>
-                        <td>{{ $travel->return_date }}</td>
+                        <td style="white-space: nowrap;">
+                            {{ \Carbon\Carbon::parse($travel->departure_date)->format('d/m/Y') }}
+                        </td>
+                        <td style="white-space: nowrap;">
+                            {{ \Carbon\Carbon::parse($travel->return_date)->format('d/m/Y') }}
+                        </td>
                         <td>
                             {{ $travel->category?->name ?? 'Nessuna' }}
                         </td>

@@ -24,9 +24,7 @@
         
                     <div class="mb-4">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea name="description" id="description" class="form-control">
-                            {{ $travel->description }}
-                        </textarea>
+                        <textarea name="description" id="description" class="form-control">{{ $travel->description }}</textarea>
                     </div>
         
                     <div class="row mb-4">
@@ -144,8 +142,8 @@
                     </div>
         
                     <div class="mt-4 d-flex gap-2">
-                        <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-secondary">← Annulla</a>
                         <button type="submit" class="btn btn-outline-primary">Modifica Viaggio</button>
+                        <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>
             </div>
