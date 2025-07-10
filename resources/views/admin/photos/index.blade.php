@@ -86,5 +86,15 @@
                 </div>
             @endforelse
         </div>
+
+        @if ($photos->hasPages())
+            <div class="d-flex justify-content-center align-items-center flex-column mt-5">
+                {{ $photos->links() }}
+
+                <p class="text-muted mt-2">
+                    Mostrate {{ $photos->lastItem() }} di {{ $photos->total() }} foto
+                </p>
+            </div>
+        @endif
     </div>
 @endsection
