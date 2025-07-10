@@ -79,6 +79,9 @@
                 <a href="{{ route('admin.travels.packing_items.index', $travel->id) }}" class="btn btn-outline-secondary">
                     🧳 Lista Valigia
                 </a>
+                <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-light">
+                    📍 Luoghi da Visitare
+                </a>
                 <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
                     ← Modifica Viaggio
                 </a>
