@@ -63,14 +63,14 @@
                     @endif
                 </div>
 
-            <div class="buttons d-flex align-items-center gap-3">
-                <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-primary">
-                    ← Torna ai luoghi
-                </a>
-                <a href="{{ route('admin.travels.places.edit', [$travel->id, $place->id]) }}" class="btn btn-outline-warning">
-                    ✏️ Modifica
-                </a>
-            </div>
+                <div class="buttons d-flex align-items-center gap-3">
+                    <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-primary">
+                        ← Torna ai luoghi
+                    </a>
+                    <a href="{{ route('admin.travels.places.edit', [$travel->id, $place->id]) }}" class="btn btn-outline-warning">
+                        ✏️ Modifica
+                    </a>
+                </div>
             </div>
         </div>
     </div>
