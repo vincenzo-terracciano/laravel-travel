@@ -84,7 +84,7 @@ class TagController extends Controller
     {
         $tag->delete();
 
-        return redirect()->route('admin-tags.index')
+        return redirect()->route('admin.tags.index')
             ->with('deleted', 'Tag eliminato con successo!');
     }
 }

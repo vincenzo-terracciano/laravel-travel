@@ -33,12 +33,7 @@
             
                     <div class="mb-4">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea 
-                            name="description" 
-                            id="description" 
-                            class="form-control" required>
-                            {{ $itinerary_step->description }}
-                        </textarea>
+                        <textarea name="description" id="description" class="form-control" required>{{ $itinerary_step->description }}</textarea>
                     </div>
             
                     <div class="mb-4">
@@ -76,8 +71,8 @@
                     </div>
 
                     <div class="mt-4 d-flex gap-2">
-                        <a href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}" class="btn btn-outline-secondary">← Annulla</a>
                         <button type="submit" class="btn btn-outline-warning">Modifica Step Itinerario</button>
+                        <a href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>
             </div>

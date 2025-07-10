@@ -67,8 +67,8 @@
                     </div>
             
                     <div class="mt-4 d-flex gap-2">
-                        <a href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}" class="btn btn-outline-secondary">← Annulla</a>
                         <button type="submit" class="btn btn-outline-primary">Salva</button>
+                        <a href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>
             </div>

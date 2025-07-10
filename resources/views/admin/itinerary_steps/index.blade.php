@@ -54,7 +54,7 @@
                         <td>Giorno {{ $step->day_number }}</td>
                         <td>{{ $step->title }}</td>
                         <td>
-                            {{ \Carbon\Carbon::parse($step->estimated_time)->format('H:i') ?? '-' }}
+                            {{ $step->estimated_time ? \Carbon\Carbon::parse($step->estimated_time)->format('H:i') : '-' }}
                         </td>
                         <td>
                             @if($step->activity_type)

@@ -38,14 +38,14 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <strong>Orario previsto:</strong>
-                    {{ \Carbon\Carbon::parse($itinerary_step->estimated_time)->format('H:i') ?? '-' }}
+                    {{ $itinerary_step->estimated_time ? \Carbon\Carbon::parse($itinerary_step->estimated_time)->format('H:i') : '-' }}
                 </li>
                 <li class="list-group-item">
                     <strong>Tipo attività:</strong>
                     @if($itinerary_step->activity_type)
                         <span class="badge bg-info text-dark">{{ $itinerary_step->activity_type }}</span>
                     @else
-                        <span class="text-muted">-</span>
+                        <span>-</span>
                     @endif
                 </li>
                 <li class="list-group-item">
@@ -53,7 +53,7 @@
                     @if($itinerary_step->place)
                         <span>{{ $itinerary_step->place->name }}</span>
                     @else
-                        <span class="text-muted">—</span>
+                        <span>-</span>
                     @endif
                 </li>
             </ul>
@@ -63,7 +63,7 @@
                     ← Torna all'itinerario
                 </a>
                 <a href="{{ route('admin.travels.itinerary_steps.edit', [$travel, $itinerary_step]) }}" class="btn btn-outline-warning">
-                    ✏️ Modifica Step
+                    Modifica Step
                 </a>
             </div>
         </div>

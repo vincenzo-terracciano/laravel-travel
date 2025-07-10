@@ -142,7 +142,7 @@
                     </div>
         
                     <div class="mt-4 d-flex gap-2">
-                        <button type="submit" class="btn btn-outline-primary">Modifica Viaggio</button>
+                        <button type="submit" class="btn btn-outline-warning">Modifica Viaggio</button>
                         <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>

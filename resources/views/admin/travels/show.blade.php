@@ -85,7 +85,7 @@
                 <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-light">
                     Luoghi da Visitare
                 </a>
-                <a href="{{ route('admin.travels.photos.index', $travel->id) }}" class="btn btn-outline-danger">
+                <a href="{{ route('admin.travels.photos.index', $travel->id) }}" class="btn btn-outline-success">
                     Visualizza tutte le foto
                 </a>
                 <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
