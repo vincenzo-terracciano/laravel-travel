@@ -20,33 +20,7 @@ class PlacesTableSeeder extends Seeder
         $travels = Travel::all();
 
         // tipologie di luoghi da visitare
-        $types = [
-            "Monumento",
-            "Museo",
-            "Ristorante tipico",
-            "Parco",
-            "Spiaggia",
-            "Punto panoramico",
-            "Centro storico",
-            "Chiesa",
-            "Mercato",
-            "Acquario",
-            "Lago",
-            "Fiume",
-            "Sito archeologico",
-            "Parco divertimenti",
-            "Castello",
-            "Isola",
-            "Vulcano",
-            "Terme",
-            "Riserva naturale",
-            "Villaggio caratteristico",
-            "Tramonto",
-            "Vetta",
-            "Giardino",
-            "Ponte storico",
-            "Borgo medioevale"
-        ];
+        $types = config('place_types');
 
         foreach ($travels as $travel) {
 

@@ -115,7 +115,7 @@
             {{ $travels->links() }}
 
             <p class="text-muted mt-2">
-                Mostrati {{ $travels->count() }} di {{ $travels->total() }} viaggi
+                Mostrati {{ $travels->lastItem() }} di {{ $travels->total() }} viaggi
             </p>
         </div>
         @endif

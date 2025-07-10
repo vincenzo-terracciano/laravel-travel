@@ -3,7 +3,7 @@
 @section('content')
     <div class="container py-3">
         <div class="d-flex justify-content-between align-items-center mb-5">
-            <h2>📍 Luoghi del viaggio: {{ $travel->title }} a {{ $travel->destination_city }}, {{ $travel->destination_country }}</h2>
+            <h5>📍 Luoghi del viaggio: {{ $travel->title }} a {{ $travel->destination_city }}, {{ $travel->destination_country }}</h5>
             <a href="{{ route('admin.travels.places.create', $travel->id) }}" class="btn btn-success">
                 + Aggiungi luogo
             </a>
@@ -107,6 +107,16 @@
                     @endforeach
                 </tbody>
             </table>
+
+            @if ($places->hasPages())
+            <div class="d-flex justify-content-center align-items-center flex-column mt-5">
+                {{ $places->links() }}
+
+                <p class="text-muted mt-2">
+                    Mostrati {{ $places->lastItem() }} di {{ $places->total() }} luoghi
+                </p>
+            </div>
+            @endif
         @endif
     </div>      
 @endsection

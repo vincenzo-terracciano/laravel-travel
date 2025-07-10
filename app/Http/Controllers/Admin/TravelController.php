@@ -118,10 +118,10 @@ class TravelController extends Controller
         if (array_key_exists("cover_image", $data)) {
 
             // elimino l'immagine precedente
-            Storage::delete($travel->cover_image);
+            Storage::disk('public')->delete($travel->cover_image);
 
             // carico la nuova immagine
-            $img_url = Storage::putFile("travels", $data["cover_image"]);
+            $img_url = Storage::disk('public')->putFile("travels", $data["cover_image"]);
 
             // aggiorno il database
             $travel->cover_image = $img_url;

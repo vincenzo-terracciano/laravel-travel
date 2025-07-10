@@ -124,7 +124,8 @@
                                 <img
                                     src="{{ asset('storage/' . $travel->cover_image) }}"
                                     alt="{{ $travel->title }}"
-                                    style="width: 100px; height: auto; border-radius: 4px;"
+                                    class="img-fluid rounded"
+                                    style="width: 100px;"
                                 />
                             @endif
                         </div>

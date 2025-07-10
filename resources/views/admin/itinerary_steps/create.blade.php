@@ -59,7 +59,7 @@
                     <div class="mb-4">
                         <label for="place_id" class="form-label">Luogo (facoltativo)</label>
                         <select name="place_id" id="place_id" class="form-select">
-                            <option value="" selected>Seleziona luogo</option>
+                            <option value="" selected>Seleziona un luogo</option>
                             @foreach ($places as $place)
                                 <option value="{{ $place->id }}">{{ $place->name }}</option>
                             @endforeach
