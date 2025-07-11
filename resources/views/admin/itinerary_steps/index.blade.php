@@ -2,11 +2,17 @@
 
 @section('content')
 <div class="container py-3">
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <h5>
-            Itinerario per il viaggio: {{ $travel->title }} a {{ $travel->destination_city }}, {{ $travel->destination_country }}
-        </h5>
-        <a href="{{ route('admin.travels.itinerary_steps.create', $travel->id) }}" class="btn btn-success">+ Aggiungi Step</a>
+    <h4 class="text-center mb-4">
+        Itinerario per il viaggio: {{ $travel->title }} a {{ $travel->destination_city }}, {{ $travel->destination_country }}
+    </h4>
+    
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <a href="{{ route('admin.travels.show', $travel->id) }}" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left me-1"></i> Torna al Viaggio
+        </a>
+        <a href="{{ route('admin.travels.itinerary_steps.create', $travel->id) }}" class="btn btn-outline-success">
+            + Aggiungi Step
+        </a>
     </div>
 
     @if (session('success'))

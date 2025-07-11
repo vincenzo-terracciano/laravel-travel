@@ -72,55 +72,77 @@
                 </li>
             </ul>
 
-            <div class="buttons d-flex align-items-center gap-3">
-                <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-primary">
-                    ← Torna alla lista Viaggi
-                </a>
-                <a href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}" class="btn btn-outline-info">
-                    Vedi Itinerario
-                </a>
-                <a href="{{ route('admin.travels.packing_items.index', $travel->id) }}" class="btn btn-outline-secondary">
-                    Lista Valigia
-                </a>
-                <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-light">
-                    Luoghi da Visitare
-                </a>
-                <a href="{{ route('admin.travels.photos.index', $travel->id) }}" class="btn btn-outline-success">
-                    Visualizza tutte le foto
-                </a>
-                <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
-                    Modifica Viaggio
-                </a>
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}">
-                    Elimina viaggio
-                </button>
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="d-flex align-items-center gap-3">
+                    <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-1"></i> Torna alla lista
+                    </a>
+                
+                    {{-- Dropdown con azioni extra --}}
+                    <div class="dropdown">
+                        <button class="btn btn-outline-info dropdown-toggle" type="button" id="actionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v me-1"></i> Dettagli
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.travels.itinerary_steps.index', $travel->id) }}">
+                                    <i class="fas fa-route me-2 text-info"></i> Itinerario
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.travels.packing_items.index', $travel->id) }}">
+                                    <i class="fas fa-suitcase-rolling me-2 text-secondary"></i> Lista Valigia
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.travels.places.index', $travel->id) }}">
+                                    <i class="fas fa-map-marker-alt me-2 text-danger"></i> Luoghi da visitare
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.travels.photos.index', $travel->id) }}">
+                                    <i class="fas fa-image me-2 text-success"></i> Foto del viaggio
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="deleteModalLabel{{ $travel->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $travel->id }}" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}">Elimina il viaggio</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Vuoi eliminare il viaggio <strong>{{ $travel->title }}</strong>?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                <form action="{{ route("admin.travels.destroy", $travel->id) }}" method="POST">
-                                    @csrf
-    
-                                    @method("DELETE")
-                                    <input type="submit" value="Elimina" class="btn btn-danger">
-                                </form>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
+                        <i class="fas fa-pen me-1"></i> Modifica
+                    </a>
+
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}">
+                        <i class="fas fa-trash me-1"></i> Elimina
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModalLabel{{ $travel->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $travel->id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}">Elimina il viaggio</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Vuoi eliminare il viaggio <strong>{{ $travel->title }}</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                    <form action="{{ route("admin.travels.destroy", $travel->id) }}" method="POST">
+                                        @csrf
+        
+                                        @method("DELETE")
+                                        <input type="submit" value="Elimina" class="btn btn-danger">
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>        
         </div>
     </div>
-
 </div>
 @endsection

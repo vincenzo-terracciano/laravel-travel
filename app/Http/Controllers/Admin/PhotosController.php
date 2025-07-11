@@ -59,9 +59,9 @@ class PhotosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Travel $travel, Photo $photo)
     {
-        //
+        return view('admin.photos.show', compact('travel', 'photo'));
     }
 
     /**

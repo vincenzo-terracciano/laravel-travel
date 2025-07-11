@@ -45,10 +45,12 @@
                             @endif
 
                             <div class="d-flex align-items-center gap-3">
+                                <a href="{{ route('admin.travels.photos.show', [$travel->id, $photo->id]) }}" class="btn btn-sm btn-info">
+                                    Visualizza
+                                </a>
                                 <a href="{{ route('admin.travels.photos.edit', [$travel->id, $photo->id]) }}" class="btn btn-sm btn-warning">
                                     Modifica
                                 </a>
-
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}-{{ $photo->id }}">
                                     Elimina
                                 </button>
