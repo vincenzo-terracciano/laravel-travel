@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="mt-4 d-flex gap-2">
-                        <button type="submit" class="btn btn-outline-warning">Salva modifiche</button>
+                        <button type="submit" class="btn btn-outline-warning">Modifica Foto</button>
                         <a href="{{ route('admin.travels.photos.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>

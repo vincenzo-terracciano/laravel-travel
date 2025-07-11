@@ -11,7 +11,7 @@
             <i class="fas fa-arrow-left me-1"></i> Torna al Viaggio
         </a>
         <a href="{{ route('admin.travels.itinerary_steps.create', $travel->id) }}" class="btn btn-outline-success">
-            + Aggiungi Step
+            <i class="fas fa-plus me-1"></i> Aggiungi Step Itinerario
         </a>
     </div>
 
@@ -89,11 +89,11 @@
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}-{{ $step->id }}">Elimina lo step</h1>
+                                                <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}-{{ $step->id }}">Elimina lo step itinerario</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Vuoi eliminare lo step <strong>{{ $step->title }}</strong>?
+                                                Vuoi eliminare lo step itinerario <strong>{{ $step->title }}</strong>?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>

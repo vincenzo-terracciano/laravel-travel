@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="mt-4 d-flex gap-2">
-                        <button type="submit" class="btn btn-outline-warning">Modifica</button>
+                        <button type="submit" class="btn btn-outline-warning">Modifica Oggetto</button>
                         <a href="{{ route('admin.travels.packing_items.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>
