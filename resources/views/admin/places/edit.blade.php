@@ -35,9 +35,7 @@
         
                     <div class="mb-4">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea name="description" id="description" rows="5" class="form-control">
-                            {{ $place->description }}
-                        </textarea>
+                        <textarea name="description" id="description" rows="5" class="form-control">{{ $place->description }}</textarea>
                     </div>
         
                     <div class="row mb-4">
@@ -85,8 +83,8 @@
                     </div>
 
                     <div class="mt-4 d-flex gap-2">
+                        <button type="submit" class="btn btn-outline-warning">Modifica Luogo</button>
                         <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
-                        <button type="submit" class="btn btn-outline-warning">Salva modifiche</button>
                     </div>
                 </form>
             </div>

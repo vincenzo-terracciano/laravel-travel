@@ -98,7 +98,9 @@ class PlaceController extends Controller
         if (array_key_exists("image", $data)) {
 
             // elimino l'immagine precedente
-            Storage::disk('public')->delete($place->image);
+            if ($place->image) {
+                Storage::disk('public')->delete($place->image);
+            }
 
             // carico la nuova immagine
             $img_url = Storage::disk('public')->putFile("places", $data["image"]);

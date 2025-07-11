@@ -3,9 +3,9 @@
 @section('content')
 <div class="container py-3">
     <div class="d-flex justify-content-between align-items-center mb-5">
-        <h2>
+        <h5>
             Itinerario per il viaggio: {{ $travel->title }} a {{ $travel->destination_city }}, {{ $travel->destination_country }}
-        </h2>
+        </h5>
         <a href="{{ route('admin.travels.itinerary_steps.create', $travel->id) }}" class="btn btn-success">+ Aggiungi Step</a>
     </div>
 

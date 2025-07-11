@@ -20,7 +20,7 @@
         
                     <div class="mb-4">
                         <label for="type" class="form-label">Tipo di luogo</label>
-                        <select name="type" id="type" class="form-select">
+                        <select name="type" id="type" class="form-select" required>
                             <option value="" selected>Seleziona un tipo</option>
                             @foreach ($placeTypes as $type)
                                 <option value="{{ $type }}">{{ $type }}</option>
@@ -74,8 +74,8 @@
                     </div>
 
                     <div class="mt-4 d-flex gap-2">
-                        <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
                         <button type="submit" class="btn btn-outline-primary">Salva</button>
+                        <a href="{{ route('admin.travels.places.index', $travel->id) }}" class="btn btn-outline-secondary">Annulla</a>
                     </div>
                 </form>
             </div>

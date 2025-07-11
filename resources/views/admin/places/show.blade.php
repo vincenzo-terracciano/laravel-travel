@@ -28,7 +28,7 @@
 
             
             <div class="card-body">
-                <h2 class="card-title mb-2">{{ $place->name }}</h2>
+                <h2 class="card-title mb-3">{{ $place->name }}</h2>
 
                 <span class="badge bg-info text-dark mb-4 fs-8">{{ $place->type }}</span>
 
@@ -68,7 +68,7 @@
                         ← Torna ai luoghi
                     </a>
                     <a href="{{ route('admin.travels.places.edit', [$travel->id, $place->id]) }}" class="btn btn-outline-warning">
-                        ✏️ Modifica
+                        Modifica
                     </a>
                 </div>
             </div>

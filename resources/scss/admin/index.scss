@@ -6,3 +6,10 @@ table {
         vertical-align: middle;
     }
 }
+
+/* Immagini nella sezione photos */
+.photo-img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
