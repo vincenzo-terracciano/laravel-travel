@@ -75,7 +75,7 @@
             <div class="d-flex justify-content-between align-items-center mt-4">
                 <div class="d-flex align-items-center gap-3">
                     <a href="{{ route('admin.travels.index') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-arrow-left me-1"></i> Torna alla lista
+                        <i class="fas fa-arrow-left me-1"></i> Torna alla lista dei Viaggi
                     </a>
                 
                     {{-- Dropdown con azioni extra --}}
@@ -110,11 +110,11 @@
 
                 <div class="d-flex align-items-center gap-3">
                     <a href="{{ route('admin.travels.edit', $travel->id) }}" class="btn btn-outline-warning">
-                        <i class="fas fa-pen me-1"></i> Modifica
+                        <i class="fas fa-pen me-1"></i> Modifica Viaggio
                     </a>
 
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}">
-                        <i class="fas fa-trash me-1"></i> Elimina
+                        <i class="fas fa-trash me-1"></i> Elimina Viaggio
                     </button>
 
                     <!-- Modal -->

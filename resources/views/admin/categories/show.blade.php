@@ -43,32 +43,41 @@
                 </p>
             @endif
 
-            <div class="mt-4 d-flex gap-2">
-                <a href="{{ route('admin.categories.index') }}" class="btn btn-outline-primary">← Torna alla lista Categorie</a>
-                <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-outline-warning">Modifica Categoria</a>
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $category->id }}">
-                    Elimina Categoria
-                </button>
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="d-flex align-items-center gap-3">
+                    <a href="{{ route('admin.categories.index') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-1"></i> Torna alla lista Categorie
+                    </a>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-outline-warning">
+                        <i class="fas fa-pen me-1"></i> Modifica Categoria
+                    </a>
 
-                <!-- Modal -->
-                <div class="modal fade" id="deleteModalLabel{{ $category->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $category->id }}" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="deleteModalLabel{{ $category->id }}">Elimina la categoria</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Vuoi eliminare la categoria <strong>{{ $category->name }}</strong>?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                <form action="{{ route("admin.categories.destroy", $category->id) }}" method="POST">
-                                    @csrf
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $category->id }}">
+                        <i class="fas fa-trash me-1"></i> Elimina Categoria
+                    </button>
     
-                                    @method("DELETE")
-                                    <input type="submit" value="Elimina" class="btn btn-danger">
-                                </form>
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModalLabel{{ $category->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $category->id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="deleteModalLabel{{ $category->id }}">Elimina la categoria</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Vuoi eliminare la categoria <strong>{{ $category->name }}</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                    <form action="{{ route("admin.categories.destroy", $category->id) }}" method="POST">
+                                        @csrf
+        
+                                        @method("DELETE")
+                                        <input type="submit" value="Elimina" class="btn btn-danger">
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
