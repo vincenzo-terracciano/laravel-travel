@@ -23,7 +23,7 @@
                     src="{{ asset('storage/' . $place->image) }}"
                     class="card-img-top" 
                     alt="Foto del luogo {{ $place->name }}"
-                    style="max-height: 400px; object-fit: cover;">
+                    style="object-fit: cover;">
             @endif
 
             

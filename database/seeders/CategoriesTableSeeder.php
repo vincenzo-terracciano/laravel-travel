@@ -15,10 +15,11 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = [
             "Avventura" => "fa-solid fa-hiking",
-            "Relax" => "fa-solid fa-spa",
             "Città d'arte" => "fa-solid fa-landmark",
+            "Città Iconiche" => "fa-solid fa-city",
             "Mare" => "fa-solid fa-umbrella-beach",
             "Montagna" => "fa-solid fa-mountain",
+            "Cultura & Tradizioni" => "fa-solid fa-torii-gate",
             "Viaggi di Coppia" => "fa-solid fa-heart",
             "Viaggi di Gruppo" => "fa-solid fa-people-group"
         ];

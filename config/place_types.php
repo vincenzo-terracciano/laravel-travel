@@ -1,6 +1,9 @@
 <?php
 
 return [
+    "Ristorante",
+    "Bar",
+    "Pasticceria",
     "Monumento",
     "Museo",
     "Ristorante tipico",

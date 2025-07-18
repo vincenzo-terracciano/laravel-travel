@@ -23,7 +23,16 @@ class TagsTableSeeder extends Seeder
             "Snorkeling" => "#1E90FF",
             "Sci" => "'#B0C4DE",
             "Natura" => "#2F4F4F",
-            "Sole" => "#FFFACD"
+            "Sole" => "#FFFACD",
+            "Avventura" => "#FF6347",
+            "Relax" => "#ADD8E6",
+            "Vita Notturna" => "#4B0082",
+            "Fotografia" => "#696969",
+            "Storia" => "#8B4513 ",
+            "Shopping" => "#FF1493",
+            "Romantico" => "#FF69B4",
+            "Famiglia" => "#FFDAB9",
+            "Lusso" => "#DAA520"
         ];
 
         foreach ($tags as $tag => $color) {

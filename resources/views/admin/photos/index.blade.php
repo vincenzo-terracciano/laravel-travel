@@ -10,7 +10,7 @@
             <a href="{{ route('admin.travels.show', $travel->id) }}" class="btn btn-outline-primary">
                 <i class="fas fa-arrow-left me-1"></i> Torna al Viaggio
             </a>
-            <a href="{{ route('admin.travels.itinerary_steps.create', $travel->id) }}" class="btn btn-outline-success">
+            <a href="{{ route('admin.travels.photos.create', $travel->id) }}" class="btn btn-outline-success">
                 <i class="fas fa-plus me-1"></i> Aggiungi Foto
             </a>
         </div>
