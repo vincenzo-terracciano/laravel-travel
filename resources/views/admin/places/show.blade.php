@@ -23,7 +23,7 @@
                     src="{{ asset('storage/' . $place->image) }}"
                     class="card-img-top" 
                     alt="Foto del luogo {{ $place->name }}"
-                    style="object-fit: cover;">
+                    style="max-height: 700px; object-fit: cover;">
             @endif
 
             
@@ -32,7 +32,7 @@
 
                 <span class="badge bg-info text-dark mb-4 fs-8">{{ $place->type }}</span>
 
-                <p class="card-text mb-4">{{ $travel->description }}</p>
+                <p class="card-text mb-4">{{ $place->description }}</p>
 
                 <div class="mb-5 p-3 rounded border">
                     <h6 class="">🌍 Coordinate geografiche</h6>

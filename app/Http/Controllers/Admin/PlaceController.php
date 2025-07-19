@@ -15,7 +15,7 @@ class PlaceController extends Controller
      */
     public function index(Travel $travel)
     {
-        $places = $travel->places()->paginate(6);
+        $places = $travel->places()->paginate(10);
 
         return view('admin.places.index', compact('travel', 'places'));
     }

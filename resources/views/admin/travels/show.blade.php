@@ -23,7 +23,7 @@
             src="{{ asset('storage/' . $travel->cover_image) }}"
             class="card-img-top" 
             alt="Copertina di {{ $travel->title }}"
-            style="object-fit: cover;">
+            style="max-height: 600px; object-fit: cover;">
         @endif
 
         <div class="card-body">

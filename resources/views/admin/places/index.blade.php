@@ -10,7 +10,7 @@
             <a href="{{ route('admin.travels.show', $travel->id) }}" class="btn btn-outline-primary">
                 <i class="fas fa-arrow-left me-1"></i> Torna al Viaggio
             </a>
-            <a href="{{ route('admin.travels.itinerary_steps.create', $travel->id) }}" class="btn btn-outline-success">
+            <a href="{{ route('admin.travels.places.create', $travel->id) }}" class="btn btn-outline-success">
                 <i class="fas fa-plus me-1"></i> Aggiungi Luogo
             </a>
         </div>
@@ -73,37 +73,39 @@
                                     <span class="text-muted">Nessuna</span>
                                 @endif
                             </td>
-                            <td class="d-flex justify-content-center gap-2">
-                                <a href="{{ route('admin.travels.places.show', [$travel->id, $place->id]) }}" class="btn btn-sm btn-info">
-                                    Visualizza
-                                </a>
-                                <a href="{{ route('admin.travels.places.edit', [$travel->id, $place->id]) }}" class="btn btn-sm btn-warning">
-                                    Modifica
-                                </a>
-
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}-{{ $place->id }}">
-                                    Elimina
-                                </button>
+                            <td style="min-width: 180px; height: 100%;">
+                                <div class="d-flex justify-content-center align-items-center gap-2"> 
+                                    <a href="{{ route('admin.travels.places.show', [$travel->id, $place->id]) }}" class="btn btn-sm btn-info">
+                                        Visualizza
+                                    </a>
+                                    <a href="{{ route('admin.travels.places.edit', [$travel->id, $place->id]) }}" class="btn btn-sm btn-warning">
+                                        Modifica
+                                    </a>
     
-                                <!-- Modal -->
-                                <div class="modal fade" id="deleteModalLabel{{ $travel->id }}-{{ $place->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $travel->id }}-{{ $place->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}-{{ $place->id }}">Elimina il luogo</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Vuoi eliminare il luogo <strong>{{ $place->name }}</strong>?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                <form action="{{ route("admin.travels.places.destroy", [$travel->id, $place->id]) }}" method="POST">
-                                                    @csrf
-                    
-                                                    @method("DELETE")
-                                                    <input type="submit" value="Elimina" class="btn btn-danger">
-                                                </form>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalLabel{{ $travel->id }}-{{ $place->id }}">
+                                        Elimina
+                                    </button>
+        
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="deleteModalLabel{{ $travel->id }}-{{ $place->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $travel->id }}-{{ $place->id }}" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="deleteModalLabel{{ $travel->id }}-{{ $place->id }}">Elimina il luogo</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Vuoi eliminare il luogo <strong>{{ $place->name }}</strong>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                                    <form action="{{ route("admin.travels.places.destroy", [$travel->id, $place->id]) }}" method="POST">
+                                                        @csrf
+                        
+                                                        @method("DELETE")
+                                                        <input type="submit" value="Elimina" class="btn btn-danger">
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
