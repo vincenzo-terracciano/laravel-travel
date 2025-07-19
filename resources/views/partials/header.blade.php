@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md shadow-md custom-navbar">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold text-white" href="{{ route('admin.home') }}">
-            <i class="fas fa-compass me-2"></i> Dashboard
+            <img src="{{ asset('storage/logo/logo-voyago.png') }}" alt="VoyaGo" class="logo-img">
         </a>
 
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
