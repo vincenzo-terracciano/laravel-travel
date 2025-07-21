@@ -16,7 +16,7 @@ class TravelController extends Controller
      */
     public function index()
     {
-        $travels = Travel::orderBy('departure_date', 'desc')->paginate(10);
+        $travels = Travel::orderBy('departure_date', 'asc')->paginate(10);
 
         return view('admin.travels.index', compact('travels'));
     }
@@ -40,21 +40,7 @@ class TravelController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'destination_country' => 'required|string|max:255',
-            'destination_city' => 'required|string|max:255',
-            'departure_date' => 'nullable|date',
-            'return_date' => 'nullable|date|after_or_equal:departure_date',
-            'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'nullable|array',
-            'tags.*' => 'exists:tags,id',
-            'cover_image' => 'nullable|image|max:2048',
-            'is_published' => 'nullable|boolean',
-        ]);
-
-        /* $data = $request->all(); */
+        $data = $request->all();
 
         $newTravel = new Travel();
 

@@ -11,7 +11,7 @@ class TravelController extends Controller
     public function index()
     {
         // prendo tutti i viaggi con le categorie e i tag e li ordino in base alla data di partenza restituendo 6 viaggi
-        $travels = Travel::with(['category', 'tags'])->orderBy('departure_date', 'desc')->paginate(6);
+        $travels = Travel::with(['category', 'tags'])->orderBy('departure_date', 'asc')->paginate(10);
 
         return response()->json(
             [
