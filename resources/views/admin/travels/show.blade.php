@@ -42,9 +42,12 @@
             </div>
 
             <div class="mb-3 d-flex flex-wrap gap-2">
-                @foreach ($travel->tags as $tag)
+                @forelse ($travel->tags as $tag)
                     <a href="{{ route('admin.tags.show', $tag->id) }}" class="badge badge-hover rounded-pill text-decoration-none me-1" style="background-color: {{ $tag->color }}">{{ $tag->name }}</a>
-                @endforeach
+
+                    @empty
+                        Nessun tag definito
+                @endforelse
             </div>
 
             <p class="card-text mb-3">{{ $travel->description }}</p>
