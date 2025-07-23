@@ -57,7 +57,7 @@ class TravelController extends Controller
         if (array_key_exists("cover_image", $data)) {
 
             // carico l'immagine del mio storage
-            $img_url = Storage::disk('public')->putFile('travels', $data['cover_image']);
+            $img_url = Storage::putFile('travels', $data['cover_image']);
 
             // memorizzo il file nel database
             $newTravel->cover_image = $img_url;
@@ -119,11 +119,11 @@ class TravelController extends Controller
 
             // elimino l'immagine precedente
             if ($travel->cover_image) {
-                Storage::disk('public')->delete($travel->cover_image);
+                Storage::delete($travel->cover_image);
             }
 
             // carico la nuova immagine
-            $img_url = Storage::disk('public')->putFile("travels", $data["cover_image"]);
+            $img_url = Storage::putFile("travels", $data["cover_image"]);
 
             // aggiorno il database
             $travel->cover_image = $img_url;

@@ -44,7 +44,7 @@ class PhotosController extends Controller
         if (array_key_exists("image", $data)) {
 
             // carico l'immagine del mio storage
-            $img_url = Storage::disk('public')->putFile('photos', $data["image"]);
+            $img_url = Storage::putFile('photos', $data["image"]);
 
             // memorizzo il file nel database
             $newPhoto->image = $img_url;
@@ -86,11 +86,11 @@ class PhotosController extends Controller
 
             // elimino l'immagine precedente
             if ($photo->image) {
-                Storage::disk('public')->delete($photo->image);
+                Storage::delete($photo->image);
             }
 
             // carico la nuova immagine
-            $img_url = Storage::disk('public')->putFile('photos', $data["image"]);
+            $img_url = Storage::putFile('photos', $data["image"]);
 
             // aggiorno il database
             $photo->image = $img_url;

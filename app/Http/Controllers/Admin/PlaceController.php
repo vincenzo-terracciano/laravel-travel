@@ -50,7 +50,7 @@ class PlaceController extends Controller
         if (array_key_exists("image", $data)) {
 
             // carico l'immagine del mio storage
-            $img_url = Storage::disk('public')->putFile('places', $data['image']);
+            $img_url = Storage::putFile('places', $data['image']);
 
             // memorizzo il file nel database
             $newPlace->image = $img_url;
@@ -99,11 +99,11 @@ class PlaceController extends Controller
 
             // elimino l'immagine precedente
             if ($place->image) {
-                Storage::disk('public')->delete($place->image);
+                Storage::delete($place->image);
             }
 
             // carico la nuova immagine
-            $img_url = Storage::disk('public')->putFile("places", $data["image"]);
+            $img_url = Storage::putFile("places", $data["image"]);
 
             // aggiorno il database
             $place->image = $img_url;
