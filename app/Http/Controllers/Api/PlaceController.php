@@ -10,6 +10,7 @@ class PlaceController extends Controller
 {
     public function index(Travel $travel)
     {
+        // recupero i luoghi da visitare per un viaggio specifico accedendo alla relazione di un singolo Model già caricato
         $places = $travel->places;
 
         return response()->json(

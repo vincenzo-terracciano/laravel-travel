@@ -10,6 +10,7 @@ class PackingItemController extends Controller
 {
     public function index(Travel $travel)
     {
+        // recupero gli oggetti da portare in valigia per un viaggio specifico accedendo alla relazione di un singolo Model già caricato
         $packingItems = $travel->packingItems;
 
         return response()->json(

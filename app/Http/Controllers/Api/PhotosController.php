@@ -10,6 +10,7 @@ class PhotosController extends Controller
 {
     public function index(Travel $travel)
     {
+        // recupero le foto per un viaggio specifico accedendo alla relazione di un singolo Model già caricato
         $photos = $travel->photos;
 
         return response()->json(
