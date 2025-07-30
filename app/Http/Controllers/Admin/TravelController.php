@@ -134,7 +134,7 @@ class TravelController extends Controller
         // verifico se sto ricevendo i tags
         if ($request->has('tags')) {
 
-            // sincronizzo i tag della tabella pivot
+            // sincronizzo i collegamenti della tabella pivot, aggiunge ed elimina i record all'interno della tabella pivot
             $travel->tags()->sync($data["tags"]);
         } else {
 
