@@ -36,7 +36,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource("travels", TravelController::class);
         Route::resource("categories", CategoryController::class);
         Route::resource("tags", TagController::class);
-        Route::resource("travels.itinerary_steps", ItineraryStepsController::class)->scoped();
+        Route::resource("travels.itinerary_steps", ItineraryStepsController::class);
         Route::resource("travels.packing_items", PackingItemController::class);
         Route::resource("travels.places", PlaceController::class);
         Route::resource("travels.photos", PhotosController::class);
